@@ -1,0 +1,49 @@
+<div class="index">
+  
+  <h3>予定一覧</h3>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>タイトル</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>終日</th>
+        <th>更新日</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.title %></td>
+        <td><%= user.start.strftime("%Y/%m/%d") %></td>
+        <td><%= user.finish.strftime("%Y/%m/%d") %></td>
+        <td>
+              <% if user.whole == true %>
+                ◯
+              <% else user.whole == false %>
+              
+              <% end %>
+          </td>
+        <td><%= user.updated_at.to_s(:datetime_jp) %></td>
+        <td><%= link_to("詳細", "/posts/#{user.id}") %></td>
+        <td><%= link_to("編集", "/posts/#{user.id}/edit") %></td>
+        <td><%= link_to("削除", "/posts/#{user.id}", method: :delete, data: {confirm: '本当に削除しますか?'}) %></td>
+      </tr>
+      
+      <% end %>  
+    </tbody>
+  </table>
+  
+  <p><%= link_to("新規登録", "/posts/new", {class: "btn btn-light"}) %></p>
+
+<%= "予定の合計：#{User.count}" %><br>
+<%= "本日の日付：#{Date.today.strftime("%Y/%m/%d")}" %>
+
+</div>

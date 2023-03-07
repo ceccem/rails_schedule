@@ -1,0 +1,37 @@
+<div class="edit_wrapper">
+  <h3>編集してください</h3>
+  
+  <%= form_with model: @register, url: post_path, scope: :register do |register| %>
+    <table class="table_edit">
+      
+      <tr>
+        <th><%= register.label :title ,"タイトル" %></th>
+        <td><%= register.text_field :title %></td>
+      </tr>
+      
+      <tr>
+        <th><%= register.label :start ,"開始日" %></th>
+        <td><%= register.date_field :start %></td>
+      </tr>
+      
+      <tr>
+        <th><%= register.label :finish ,"終了日" %></th>
+        <td><%= register.date_field :finish %></td>
+      </tr>
+      
+      <tr>
+        <th><%= register.label :whole ,"終日" %></th>
+        <td><%= register.check_box :whole, {}, checked_value = "true", unchecked_value = "false" %></td>
+      </tr>
+      
+      <tr>
+        <th><%= register.label :memo ,"メモ" %></th>
+        <td><%= register.text_area :memo %></td>
+      </tr>
+    </table>
+    <%= register.submit "更新する" %>
+  
+  <% end %>
+  
+  <%= link_to("キャンセル", "/") %>
+</div>

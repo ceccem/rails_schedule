@@ -1,0 +1,38 @@
+<div class="new">
+  
+  <h3>予定の新規追加</h3>
+  
+  <%= form_with model: @register, url: posts_path, scope: :register do |register| %>
+    <table class="table_new">
+      <tr>
+        <th><%= register.label :title ,"タイトル" %></th>
+        <td><%= register.text_field :title %></td>
+      </tr>
+      
+      <tr>
+        <th><%= register.label :start ,"開始日" %></th>
+        <td><%= register.date_field :start %></td>
+      </tr>
+      
+      <tr>
+        <th><%= register.label :finish ,"終了日" %></th>
+        <td><%= register.date_field :finish %></td>
+      </tr>
+      
+      <tr>
+        <th><%= register.label :whole ,"終日" %></th>
+        <td><%= register.check_box :whole, {}, true, false %></td>
+      </tr>
+      
+      <tr>
+        <th><%= register.label :memo ,"メモ" %></th>
+        <td><%= register.text_area :memo %></td>
+      </tr>
+  
+    </table>
+  <%= register.submit "保存" %>
+    
+  <% end %>
+  <%= link_to("キャンセル", "/") %>
+    
+</div>

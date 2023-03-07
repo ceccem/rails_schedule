@@ -1,0 +1,40 @@
+<div class="show_wrapper">
+  <div class="show_top">
+    <h3>詳細ページ</h3>
+    <%= link_to("一覧へ", "/") %>
+    <%= link_to("編集へ", edit_post_path) %>
+  </div>
+  <table class="table_show">
+    <tr>
+      <th>タイトル</th>
+      <td><%= @register.title %></td>
+    </tr>
+    
+    <tr>
+      <th>開始日</th>
+      <td><%= @register.start %></td>
+    </tr>
+    
+    <tr>
+      <th>終了日</th>
+      <td><%= @register.finish %></td>
+    </tr>
+    
+    <tr>
+      <th>終日</th>
+      <td>
+        <% if @register.whole == 0 %>
+              ◯
+        <% else @register.whole == false %>
+            
+        <% end %>
+      </td>
+    </tr>
+    
+    <tr>
+      <th>メモ</th>
+      <td><%= @register.memo %></td>
+    </tr>
+    
+  </table>
+</div>

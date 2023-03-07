@@ -18,23 +18,23 @@
     </thead>
     
     <tbody>
-      <% @users.each do |user| %>
+      <% @registers.each do |register| %>
       <tr>
-        <td><%= user.id %></td>
-        <td><%= user.title %></td>
-        <td><%= user.start.strftime("%Y/%m/%d") %></td>
-        <td><%= user.finish.strftime("%Y/%m/%d") %></td>
+        <td><%= register.id %></td>
+        <td><%= register.title %></td>
+        <td><%= register.start.strftime("%Y/%m/%d") %></td>
+        <td><%= register.finish.strftime("%Y/%m/%d") %></td>
         <td>
-              <% if user.whole == true %>
+              <% if register.whole == true %>
                 ◯
-              <% else user.whole == false %>
+              <% else register.whole == false %>
               
               <% end %>
           </td>
-        <td><%= user.updated_at.to_s(:datetime_jp) %></td>
-        <td><%= link_to("詳細", "/posts/#{user.id}") %></td>
-        <td><%= link_to("編集", "/posts/#{user.id}/edit") %></td>
-        <td><%= link_to("削除", "/posts/#{user.id}", method: :delete, data: {confirm: '本当に削除しますか?'}) %></td>
+        <td><%= register.updated_at.to_s(:datetime_jp) %></td>
+        <td><%= link_to("詳細", "/posts/#{register.id}") %></td>
+        <td><%= link_to("編集", "/posts/#{register.id}/edit") %></td>
+        <td><%= link_to("削除", "/posts/#{register.id}", method: :delete, data: {confirm: '本当に削除しますか?'}) %></td>
       </tr>
       
       <% end %>  
@@ -43,7 +43,7 @@
   
   <p><%= link_to("新規登録", "/posts/new", {class: "btn btn-light"}) %></p>
 
-<%= "予定の合計：#{User.count}" %><br>
+<%= "予定の合計：#{Register.count}" %><br>
 <%= "本日の日付：#{Date.today.strftime("%Y/%m/%d")}" %>
 
 </div>

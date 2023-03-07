@@ -1,16 +1,16 @@
 class PostsController < ApplicationController
 
   def index
-    @users = User.all
+    @registers = Register.all
   end
  
   def new
-    @user = User.new
+    @register = Register.new
   end
  
   def create
-    @user = User.new(params.require(:user).permit(:title, :start, :finish, :whole, :memo))
-    if @user.save
+    @register = Register.new(params.require(:register).permit(:title, :start, :finish, :whole, :memo))
+    if @register.save
       flash[:notice] = "登録しました"
       redirect_to :posts
     else
@@ -20,17 +20,17 @@ class PostsController < ApplicationController
   end
  
   def show
-    @user = User.find(params[:id])
+    @register = Register.find(params[:id])
   end
  
   def edit
-    @user = User.find_by(id: params[:id])
+    @register = Register.find_by(id: params[:id])
   end
  
   def update
-    @user = User.find_by(id: params[:id])
+    @register = Register.find_by(id: params[:id])
     if
-      @user.update(params.require(:user).permit(:title, :start, :finish, :whole, :memo))
+      @register.update(params.require(:register).permit(:title, :start, :finish, :whole, :memo))
       flash[:notice] = "更新しました"
       redirect_to :posts
     else
@@ -40,8 +40,8 @@ class PostsController < ApplicationController
   end
  
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    @register = Register.find(params[:id])
+    @register.destroy
     flash[:notice] = "削除しました"
     redirect_to :posts
   end

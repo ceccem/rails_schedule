@@ -7,25 +7,25 @@
   <table class="table_show">
     <tr>
       <th>タイトル</th>
-      <td><%= @user.title %></td>
+      <td><%= @register.title %></td>
     </tr>
     
     <tr>
       <th>開始日</th>
-      <td><%= @user.start %></td>
+      <td><%= @register.start %></td>
     </tr>
     
     <tr>
       <th>終了日</th>
-      <td><%= @user.finish %></td>
+      <td><%= @register.finish %></td>
     </tr>
     
     <tr>
       <th>終日</th>
       <td>
-        <% if @user.whole == 0 %>
+        <% if @register.whole == 0 %>
               ◯
-        <% else @user.whole == false %>
+        <% else @register.whole == false %>
             
         <% end %>
       </td>
@@ -33,7 +33,7 @@
     
     <tr>
       <th>メモ</th>
-      <td><%= @user.memo %></td>
+      <td><%= @register.memo %></td>
     </tr>
     
   </table>

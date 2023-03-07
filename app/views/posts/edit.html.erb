@@ -1,35 +1,35 @@
 <div class="edit_wrapper">
   <h3>編集してください</h3>
   
-  <%= form_with model: @user, url: post_path, scope: :user do |user| %>
+  <%= form_with model: @register, url: post_path, scope: :register do |register| %>
     <table class="table_edit">
       
       <tr>
-        <th><%= user.label :title ,"タイトル" %></th>
-        <td><%= user.text_field :title %></td>
+        <th><%= register.label :title ,"タイトル" %></th>
+        <td><%= register.text_field :title %></td>
       </tr>
       
       <tr>
-        <th><%= user.label :start ,"開始日" %></th>
-        <td><%= user.date_field :start %></td>
+        <th><%= register.label :start ,"開始日" %></th>
+        <td><%= register.date_field :start %></td>
       </tr>
       
       <tr>
-        <th><%= user.label :finish ,"終了日" %></th>
-        <td><%= user.date_field :finish %></td>
+        <th><%= register.label :finish ,"終了日" %></th>
+        <td><%= register.date_field :finish %></td>
       </tr>
       
       <tr>
-        <th><%= user.label :whole ,"終日" %></th>
-        <td><%= user.check_box :whole, {}, checked_value = "true", unchecked_value = "false" %></td>
+        <th><%= register.label :whole ,"終日" %></th>
+        <td><%= register.check_box :whole, {}, checked_value = "true", unchecked_value = "false" %></td>
       </tr>
       
       <tr>
-        <th><%= user.label :memo ,"メモ" %></th>
-        <td><%= user.text_area :memo %></td>
+        <th><%= register.label :memo ,"メモ" %></th>
+        <td><%= register.text_area :memo %></td>
       </tr>
     </table>
-    <%= user.submit "更新する" %>
+    <%= register.submit "更新する" %>
   
   <% end %>
   

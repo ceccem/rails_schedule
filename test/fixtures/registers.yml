@@ -2,14 +2,14 @@
 
 one:
   title: MyText
-  start: MyText
-  end: MyText
-  whole: 1
+  start: 2023-03-07
+  finish: 2023-03-07
+  whole: false
   memo: MyText
 
 two:
   title: MyText
-  start: MyText
-  end: MyText
-  whole: 1
+  start: 2023-03-07
+  finish: 2023-03-07
+  whole: false
   memo: MyText
